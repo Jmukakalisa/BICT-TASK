@@ -13,7 +13,7 @@ app.use(cors())
 
 app.use(express.static('public'))
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/views/indext.html')
+  res.sendFile(__dirname + '/views/index.html')
 });
 
 // setting port listener 
@@ -62,7 +62,7 @@ app.get('/api/task/users', (req,res) =>{
 app.post('/api/task/add', bodyParser.urlencoded({extended: false}), (req, res) => {
   let newTask = new Task({
     description: req.body.description,
-    duration: parserInt(req.body.duration),
+    duration: parseInt(req.body.duration),
     date: req.body.date
   })
   if(newTask.date === ''){
