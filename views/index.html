@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Task Tracker | freeCodeCamp</title>
+    <title>Exercise Tracker | freeCodeCamp</title>
     <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico"  type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
     <link href="/public/style.css" rel="stylesheet" type="text/css" />
@@ -9,17 +9,17 @@
 
   <body>
     <div class="container">
-      <h1>Task tracker</h1>
-      <form action="/api/task/new-user" method="post">
+      <h1>Exercise tracker</h1>
+      <form action="/api/exercise/new-user" method="post">
         <h3>Create a New User</h3>
-        <p><code>POST /api/task/new-user</code></p>
+        <p><code>POST /api/exercise/new-user</code></p>
         <input id="uname" type="text" name="username" placeholder="username" />
         <!-- <input id="umail" type="text" name="email" placeholder="Email"/> -->
         <input type="submit" value="Create" />
       </form>
-      <form action="/api/task/add" method="post">
-        <h3>Add tasks</h3>
-        <p><code>POST /api/task/add</code></p>
+      <form action="/api/exercise/add" method="post">
+        <h3>Add Exercises</h3>
+        <p><code>POST /api/exercise/add</code></p>
         <input id="uid" type="text" name=":_id" placeholder=":_id" />
         <input id="desc" type="text" name="description" placeholder="description*" />
         <input id="dur" type="text" name="duration" placeholder="duration* (mins.)" />
@@ -27,20 +27,20 @@
         <input type="submit" value="Add Session" />
       </form>
       <p>
-        <strong>GET user's task log: </strong>
+        <strong>GET user's exercise log: </strong>
         <code>GET /api/users/:_id/logs?[from][&amp;to][&amp;limit]</code>
       </p>
       <p><strong>[ ]</strong> = optional</p>
       <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
     </div>
     <script>
-      const taskForm = document.getElementById("task-form");
+      const exerciseForm = document.getElementById("exercise-form");
 
-      taskForm.addEventListener("submit", () => {
+      exerciseForm.addEventListener("submit", () => {
         const userId = document.getElementById("uid").value;
-        taskForm.action = `/api/users/${userId}/task`;
+        exerciseForm.action = `/api/users/${userId}/exercise`;
 
-        taskForm.submit();
+        exerciseForm.submit();
       });
     </script>
   </body>

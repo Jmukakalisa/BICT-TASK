@@ -13,7 +13,7 @@ app.use(cors())
 
 app.use(express.static('public'))
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/views/indext.html')
+  res.sendFile(__dirname + '/views/index.html')
 });
 
 // setting port listener 
@@ -38,8 +38,8 @@ const taskSessionkSchema = new mongoose.Schema({
   const Task = mongoose.model("Task", taskSessionkSchema);
   const User = mongoose.model('User', userSchema)
 
-  // routes
-  app.post('/api/task/new-user', bodyParser.urlencoded({extended: false}), (req, res) =>{
+//   // routes
+  app.post('/api/exercise/new-user', bodyParser.urlencoded({extended: false}), (req, res) =>{
     let newUser = new User({username: req.body.username})
     newUser.save((error, savedUser) => {
       if(!error){
@@ -51,7 +51,7 @@ const taskSessionkSchema = new mongoose.Schema({
     })
 } )
 
-app.get('/api/task/users', (req,res) =>{
+app.get('/api/exercise/users', (req,res) =>{
   User.find({}, (error, arrayOfUsers) =>{
     if(!error){
       res.json(arrayOfUsers)
@@ -59,10 +59,10 @@ app.get('/api/task/users', (req,res) =>{
   })
 })
 
-app.post('/api/task/add', bodyParser.urlencoded({extended: false}), (req, res) => {
+app.post('/api/exercise/add', bodyParser.urlencoded({extended: false}), (req, res) => {
   let newTask = new Task({
     description: req.body.description,
-    duration: parserInt(req.body.duration),
+    duration: parseInt(req.body.duration),
     date: req.body.date
   })
   if(newTask.date === ''){
@@ -86,7 +86,7 @@ app.post('/api/task/add', bodyParser.urlencoded({extended: false}), (req, res) =
   )
 })
 
-app.get('/api/task/log', (req,res) => {
+app.get('/api/exercise/log', (req,res) => {
   User.findById(req.query.userId, (error, result) => {
     if(!error){
       let resObject = result
