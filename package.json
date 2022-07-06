@@ -1,0 +1,33 @@
+{
+  "name": "fcc-task-tracker",
+  "version": "0.1.0",
+  "module": "commonjs",
+  "description": "A RESTFULL API PROJECT",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.3",
+    "mongodb": "^4.7.0",
+    "body-parser":"^1.15.2",
+    "shortid":"^2.2.6" 
+  },
+  "repository": {
+    "url": "git+https://github.com/freeCodeCamp/boilerplate-project-exercisetracker.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "freecodecamp",
+    "node",
+    "express"
+  ],
+  "bugs": {
+    "url": "https://github.com/freeCodeCamp/boilerplate-project-exercisetracker/issues"
+  },
+  "homepage": "https://github.com/freeCodeCamp/boilerplate-project-exercisetracker#readme",
+  "author": "Jeanne Mukakalisa"
+}
